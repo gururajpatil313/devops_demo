@@ -1,24 +1,14 @@
-pipeline{
+node{
     
-    agent any
-    stages{
+    if(env.BRANCH_NAME == 'main'){
         stage('main'){
-            when{
-                branch 'main'
-            }
-            
-            steps{
-                echo "Building Main branch"
-            }
+            echo "Building Main Branch..."
         }
-        stage('dev'){
-            when{
-                branch 'dev'
-            }
-            
-            steps{
-                echo "Building dev branch"
-            }
+    }
+    
+    if(env.BRANCH_NAME == "dev"){
+        stage('Dev'){
+            echo "Building Dev branch"
         }
     }
 }
