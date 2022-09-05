@@ -1,14 +1,9 @@
-pipeline{
-agent any
+node{
     
-    stages{
-        stage('test'){
-            steps{
-            echo "Hello Jenkins Pipeline..."
-            }
+    if (env.BRANCH_NAME=='main'){
+        stage('Running Main branch'){
+            echo "Executing Main branch...."
         }
-        
     }
-
 
 }
